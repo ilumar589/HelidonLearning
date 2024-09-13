@@ -1,17 +1,12 @@
 package com.example.myproject.components.pokemon.viewModel;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.eclipse.collections.api.factory.Lists;
+import org.eclipse.collections.api.list.ImmutableList;
 
-public final class PokemonViewModelList {
-
-    public PokemonViewModelList() {
-        pokemons = new ArrayList<>();
+public record PokemonViewModelList(ImmutableList<PokemonViewModel> pokemons) {
+    public PokemonViewModelList {
+        if (pokemons == null) {
+            pokemons = Lists.immutable.empty();
+        }
     }
-
-    public PokemonViewModelList(List<PokemonViewModel> pokemons) {
-        this.pokemons = pokemons;
-    }
-
-    public List<PokemonViewModel> pokemons;
 }

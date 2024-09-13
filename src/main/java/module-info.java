@@ -25,6 +25,8 @@ module com.example.myproject {
     requires io.helidon.logging.common;
     requires io.helidon.dbclient.health;
     requires rocker.runtime;
+    requires org.eclipse.collections.api;
+//    requires org.eclipse.collections.impl;
 
     exports com.example.myproject;
 

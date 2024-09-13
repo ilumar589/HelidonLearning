@@ -9,7 +9,7 @@
     </tr>
     </thead>
     <tbody hx-target="closest tr" hx-swap="outerHTML">
-    @for (pokemon : pokemonList.pokemons) {
+    @for (pokemon : pokemonList.pokemons()) {
         <tr>
             <td>@pokemon.name()</td>
             <td>@pokemon.name()</td>

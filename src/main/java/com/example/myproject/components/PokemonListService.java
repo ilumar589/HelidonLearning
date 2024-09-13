@@ -8,15 +8,14 @@ import io.helidon.webserver.http.HttpRules;
 import io.helidon.webserver.http.HttpService;
 import io.helidon.webserver.http.ServerRequest;
 import io.helidon.webserver.http.ServerResponse;
-
-import java.util.Arrays;
+import org.eclipse.collections.api.factory.Lists;
 
 public final class PokemonListService implements HttpService {
 
     private final PokemonViewModelList localDb;
 
     public PokemonListService() {
-        localDb = new PokemonViewModelList(Arrays.asList(
+        localDb = new PokemonViewModelList(Lists.immutable.of(
                 new PokemonViewModel(1, "Pikachu"),
                 new PokemonViewModel(2, "Charizard"),
                 new PokemonViewModel(3, "Bulbasaur")));
@@ -75,7 +74,7 @@ public final class PokemonListService implements HttpService {
                 .pathParameters()
                 .get("id"));
 
-        final var searchResult = localDb.pokemons.get(pokemonId - 1);
+        final var searchResult = localDb.pokemons().get(pokemonId - 1);
 
         final var out = (ArrayOfByteArraysOutput) pokemonList.pokemonEdit
                 .template(searchResult)
