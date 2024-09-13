@@ -3,7 +3,7 @@ package com.example.myproject;
 
 import java.util.logging.Logger;
 
-import com.example.myproject.components.PokemonListService;
+import com.example.myproject.components.pokemon.PokemonListService;
 import io.helidon.logging.common.LogConfig;
 import io.helidon.config.Config;
 import io.helidon.webserver.WebServer;
@@ -14,7 +14,6 @@ import io.helidon.http.HeaderValues;
 import io.helidon.webserver.staticcontent.StaticContentService;
 import io.helidon.cors.CrossOriginConfig;
 import io.helidon.webserver.cors.CorsSupport;
-import io.helidon.http.Status;
 import io.helidon.faulttolerance.BulkheadException;
 import io.helidon.faulttolerance.CircuitBreakerOpenException;
 import io.helidon.faulttolerance.TimeoutException;

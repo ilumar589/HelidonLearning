@@ -1,4 +1,4 @@
-package com.example.myproject.components;
+package com.example.myproject.components.pokemon;
 
 import com.example.myproject.components.pokemon.viewModel.PokemonViewModel;
 import com.example.myproject.components.pokemon.viewModel.PokemonViewModelList;
