@@ -26,8 +26,9 @@ tracing:
 db:
   source: jdbc
   connection:
-    url: jdbc:mysql://127.0.0.1:3306/pokemon?useSSL=false
-    username: user
+#    url: jdbc:mysql://127.0.0.1:3306/pokemon?useSSL=false
+    url: jdbc:postgresql://localhost:5432/pokemon?user=changeit&password=changeit
+    username: changeit
     password: changeit
     initializationFailTimeout: -1
     connectionTimeout: 2000

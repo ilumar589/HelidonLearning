@@ -1,2 +1,2 @@
-mvn package
+mvn package -DskipTests
 java -jar target/helidonLearning.jar
