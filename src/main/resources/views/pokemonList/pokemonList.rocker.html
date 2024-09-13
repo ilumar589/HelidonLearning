@@ -1,0 +1,41 @@
+@args (com.example.myproject.components.pokemon.viewModel.PokemonViewModelList pokemonList)
+
+<table class="table delete-row-example">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody hx-target="closest tr" hx-swap="outerHTML">
+    @for (pokemon : pokemonList.pokemons) {
+        <tr>
+            <td>@pokemon.name()</td>
+            <td>@pokemon.name()</td>
+            <td>
+                <button class="btn btn-danger"
+                        hx-get="pokemon/@pokemon.id()/edit"
+                        hx-trigger="edit"
+                        onClick="let editing = document.querySelector('.editing')
+                             if(editing) {
+                               Swal.fire({title: 'Already Editing',
+                                          showCancelButton: true,
+                                          confirmButtonText: 'Yep, Edit This Row!',
+                                          text:'Hey!  You are already editing a row!  Do you want to cancel that edit and continue?'})
+                               .then((result) => {
+                                    if(result.isConfirmed) {
+                                       htmx.trigger(editing, 'cancel')
+                                       htmx.trigger(this, 'edit')
+                                    }
+                                })
+                             } else {
+                                htmx.trigger(this, 'edit')
+                             }">
+                    Edit
+                </button>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
