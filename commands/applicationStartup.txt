@@ -1,2 +1,5 @@
 mvn package -DskipTests
 java -jar target/helidonLearning.jar
+
+
+mvn package -Pnative-image -Dnative.image.buildStatic -DskipTests
